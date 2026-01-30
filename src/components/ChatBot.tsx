@@ -35,7 +35,7 @@ export default function ChatBot() {
     if (inputValue.trim() === "") return
 
     const userMessage: Message = {
-      id: Date.now().toString(),
+      id: crypto.randomUUID(),
       text: inputValue,
       sender: "user",
       timestamp: new Date(),
@@ -47,7 +47,7 @@ export default function ChatBot() {
     // Simulate bot response
     setTimeout(() => {
       const botMessage: Message = {
-        id: (Date.now() + 1).toString(),
+        id: crypto.randomUUID(),
         text: "Merci pour votre message ! C'est un chatbot de démonstration.",
         sender: "bot",
         timestamp: new Date(),
@@ -56,7 +56,7 @@ export default function ChatBot() {
     }, 1000)
   }
 
-  const handleKeyPress = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault()
       handleSend()
@@ -114,7 +114,7 @@ export default function ChatBot() {
               <Textarea
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
-                onKeyPress={handleKeyPress}
+                onKeyDown={handleKeyDown}
                 placeholder="Tapez votre message ici..."
                 className="resize-none min-h-[60px] max-h-[120px]"
                 rows={2}
