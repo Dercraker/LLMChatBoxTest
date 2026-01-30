@@ -1,73 +1,80 @@
-# React + TypeScript + Vite
+# LLM ChatBox Test
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Un projet de chatbot moderne et élégant développé avec Vite, React, TypeScript, Tailwind CSS et Shadcn/ui.
 
-Currently, two official plugins are available:
+## 🚀 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Vite** - Outil de build ultra-rapide
+- **React 19** - Bibliothèque UI
+- **TypeScript** - Typage statique
+- **Tailwind CSS v4** - Framework CSS utilitaire
+- **Shadcn/ui** - Composants UI réutilisables et stylisés
 
-## React Compiler
+## 📦 Installation
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Développement
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Lancez le serveur de développement :
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+L'application sera disponible sur `http://localhost:5173`
+
+## 🏗️ Build
+
+Pour créer une version de production :
+
+```bash
+npm run build
+```
+
+Les fichiers optimisés seront générés dans le dossier `dist/`
+
+## 🧹 Linting
+
+Pour vérifier la qualité du code :
+
+```bash
+npm run lint
+```
+
+## 📝 Fonctionnalités
+
+- Interface de chat moderne et responsive
+- Zone de messages avec distinction visuelle entre utilisateur et bot
+- Champ de texte avec textarea redimensionnable
+- Envoi de messages par clic ou touche Entrée
+- Support de Shift+Entrée pour les nouvelles lignes
+- Horodatage des messages
+- Défilement automatique vers les nouveaux messages
+- Design élégant avec dégradés et animations
+- Support du mode sombre (via Tailwind)
+
+## 🎨 Personnalisation
+
+Les composants UI se trouvent dans `src/components/ui/` et peuvent être facilement personnalisés. Les variables de couleur sont définies dans `src/index.css` et peuvent être modifiées selon vos besoins.
+
+## 📂 Structure du projet
+
+```
+src/
+├── components/
+│   ├── ui/           # Composants UI réutilisables (Button, Card, Textarea)
+│   └── ChatBot.tsx   # Composant principal du chatbot
+├── lib/
+│   └── utils.ts      # Fonctions utilitaires (cn pour classNames)
+├── App.tsx           # Composant racine
+├── main.tsx          # Point d'entrée
+└── index.css         # Styles globaux et configuration Tailwind
+```
+
+## 📄 Licence
+
+MIT
+
